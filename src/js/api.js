@@ -25,6 +25,41 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
                 throw e;
             }
         },
+        getBeersDetail: async (id) => {
+            try {
+                const response = await fetch(`${BEERS_URL}/${id}`, {
+                    headers: {
+                        'Content-type': 'application/json',
+                        'X-API-KEY': API_KEY,
+                    },
+                });
+                const beer = await response.json();
+                console.log(beer);
+                return beer;
+            } catch (e) {
+                console.error(e);
+            }
+        },
+        createQuote: async (id, text) => {
+            try {
+                const response = await fetch(`${API_URL}/${id}/comment`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        quote: text,
+                    }),
+                    headers: {
+                        'Content-type': 'application/json',
+                        'X-API-KEY': API_KEY,
+                    },
+                });
+                console.log(response);
+                const quote = await response.json();
+                return quote;
+            } catch (e) {
+                console.error(e);
+                throw e;
+            }
+        },
     };
 };
 

@@ -9,7 +9,7 @@ $divider-color:        #BDBDBD;
 
 
 $primary-font-size: 1rem;
-$icons: primary-font-size + .5rem;
+$icons: $primary-font-size + .5rem;
 $header-h2: $primary-font-size + .2rem;
 $logo-font: $primary-font-size + 2rem;
 
