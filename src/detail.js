@@ -1,5 +1,6 @@
 import './styles/detail.scss';
 import api from './js/api';
+import './js/quoteForm'
 
 const { getBeersDetail } = api();
 

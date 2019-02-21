@@ -13,7 +13,7 @@ const templateBeer = ({ beerId, name, image, description, principal }) => `
         </header>
         <div class="card-content">
           <div class="card-content-image">
-            <img src="${image}">
+          <a href="/detail.html?id=${beerId}"> <img src="${image}"> </a>
           </div>
           <div class="card-content-text">
             <p>${striptags(description)}</p>
