@@ -18,7 +18,6 @@ closeIcon.addEventListener('click', () =>
     navbarVariable('search', 'no-search'));
 
 const openHeader = (id) => (evt) => {
-    console.log(evt);
     const elemento = document.getElementById(id);
     elemento.classList.toggle('close');
 };
