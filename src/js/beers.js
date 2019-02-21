@@ -1,26 +1,10 @@
 
 import striptags from 'striptags';
 import { openHeader } from './ui';
+import api from './api';
 
-const API_KEY = '15PKA5T-XCV4K6J-GQ4ZAG0-Q4WX0MX';
-const API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh/api/v1/';
+const { getBeers } = api();
 
-const getBeers = async () => {
-    try {
-        const response = await fetch(`${API_URL}beers?search=pale&limit=10`, {
-            headers: {
-                'Content-type': 'application/json',
-                'X-API-KEY': API_KEY,
-            },
-        });
-        console.log(response);
-        const datos = await response.json();
-        return datos;
-    } catch (e) {
-        console.error(e);
-        throw e;
-    }
-};
 
 const templateBeer = ({ beerId, name, image, description, principal }) => `
     <div id="${beerId}" class="card ${principal ? 'principal' : 'secondary close'}">
@@ -70,10 +54,10 @@ const renderBeers = (element, beersObject) => {
     });
 };
 
-const renderDOMBeers = async () => {
+const renderDOMBeers = async (query) => {
     try {
-        const fetchBeers = await getBeers();
-
+        const fetchBeers = await getBeers(query);
+//limitar por fecha
         const beerSection = document.getElementById('beer-section');
         renderBeers(beerSection, fetchBeers);
     } catch (e) {
@@ -82,4 +66,6 @@ const renderDOMBeers = async () => {
 };
 
 
-renderDOMBeers();
+export {
+    renderDOMBeers,
+};
