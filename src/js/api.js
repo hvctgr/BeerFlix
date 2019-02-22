@@ -42,7 +42,7 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
         },
         createQuote: async (id, text) => {
             try {
-                const response = await fetch(`${API_URL}${id}/comment`, {
+                const response = await fetch(`${BEERS_URL}/${id}/comment`, {
                     method: 'POST',
                     body: JSON.stringify({
                         comment: text,
