@@ -63,6 +63,29 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
                 throw e;
             }
         },
+        plusOneLike: async (id) => {
+            try {
+                const response = await fetch(`${BEERS_URL}/${id}/like`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        comment: text,
+                    }),
+                    headers: {
+                        'Content-type': 'application/json',
+                        'X-API-KEY': API_KEY,
+                    },
+                });
+                console.log(response);
+                if(!response.ok) {
+                    throw 'Error';
+                }
+                const like = await response.json();
+                return like;
+            } catch (e) {
+                console.error(e);
+                throw e;
+            }
+        },
     };
 };
 
