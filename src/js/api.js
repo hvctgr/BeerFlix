@@ -80,6 +80,7 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
                     throw 'Error';
                 }
                 const like = await response.json();
+                console.log("retorno like: ", like);
                 return like;
             } catch (e) {
                 console.error(e);
