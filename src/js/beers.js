@@ -57,13 +57,15 @@ const renderBeers = (element, beersToShow) => {
 
 const renderDOMBeers = async (query) => {
   try {
-    const objectBeers = await getBeers(query);
+    const objectBeers = await getBeers(query); //poner limite
 console.log(objectBeers)
+
     const [dateFilterYear, dateFilterMonth] = document.getElementById('dateInput').value.split('-');
     const beersFiltered = objectBeers.beers.filter(beer => {
       const [dateBeerMonth, dateBeerYear] = beer.firstBrewed.split('/');
       return ( (dateFilterYear < dateBeerYear) ||
         ((dateFilterYear == dateBeerYear) && (dateFilterMonth <= dateBeerMonth)));
+        
     });
 
     const beerSection = document.getElementById('beer-section');

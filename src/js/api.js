@@ -67,9 +67,6 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
             try {
                 const response = await fetch(`${BEERS_URL}/${id}/like`, {
                     method: 'POST',
-                    body: JSON.stringify({
-                        comment: text,
-                    }),
                     headers: {
                         'Content-type': 'application/json',
                         'X-API-KEY': API_KEY,

@@ -1,26 +1,32 @@
 import api from './api';
 
 const { plusOneLike } = api();
+export const likePlus = (id) => {
+  const likeIcon = document.querySelector(".likes .icon");
 
-const likeIcon = document.querySelector(".likes .icon");
+  const likeTemplate = (comment) => `
+  <i class="fas fa-thumbs-up"> ${comment} </i>
+  `
 
-const likeTemplate = (comment) => `
-    ${comment}
-`;
+  likeIcon.addEventListener('click', async (evt) => {
 
-
-likeIcon.addEventListener('click', async (evt) => {
-
-  try {
+    try {
       console.log("likes");
-    const [, id] = window.location.search ? window.location.search.split('=') : [];
-    const quote = await plusOneLike(id);
-     
-  //  commentPar.innerHTML = likeTemplate(quoteInput.value);
-  //  document.getElementById('quoteList').appendChild(commentPar);
-    
-  } catch (e) {
-    console.error(e);
-  }
+      const quote = await plusOneLike(id);
 
-});
+//textcontent cojo valor y hago trim
+        //variableconlikes = document.querySelector(".likes .icon").textContent.trim()
+//con inner lo pongo bonito
+        //noseque = document.querySelector(".likes .icon").innerHTML.trim()
+      
+      //anterior
+        //  commentPar.innerHTML = likeTemplate(variableconlikes);
+      //  document.getElementById('quoteList').appendChild(commentPar);
+
+    } catch (e) {
+      console.error(e);
+    }
+
+  });
+
+}

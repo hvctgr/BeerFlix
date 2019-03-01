@@ -1,6 +1,7 @@
 import './styles/detail.scss';
 import api from './js/api';
-import './js/quoteForm'
+import './js/quoteForm';
+import { likePlus } from './js/likesPlus';
 
 const { getBeersDetail } = api();
 
@@ -38,6 +39,7 @@ const renderDetail = async () => {
 
         const beerHTML = detailTemplate(beerObj.beer);
         document.getElementById('detail').innerHTML = beerHTML;
+        likePlus(id)
 
         if (beerObj.beer.comment) {
             const commentHTML = beerObj.beer.comment.map( (comment) => commentTemplate(comment) ).join('');
