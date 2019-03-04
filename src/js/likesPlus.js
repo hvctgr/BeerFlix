@@ -4,24 +4,16 @@ const { plusOneLike } = api();
 export const likePlus = (id) => {
   const likeIcon = document.querySelector(".likes .icon");
 
-  const likeTemplate = (comment) => `
-  <i class="fas fa-thumbs-up"> ${comment} </i>
+  const likeTemplate = (beerLikes) => `
+  <i class="fas fa-thumbs-up"> ${beerLikes} </i>
   `
 
   likeIcon.addEventListener('click', async (evt) => {
 
     try {
-      console.log("likes");
       const quote = await plusOneLike(id);
-
-//textcontent cojo valor y hago trim
-        //variableconlikes = document.querySelector(".likes .icon").textContent.trim()
-//con inner lo pongo bonito
-        //noseque = document.querySelector(".likes .icon").innerHTML.trim()
-      
-      //anterior
-        //  commentPar.innerHTML = likeTemplate(variableconlikes);
-      //  document.getElementById('quoteList').appendChild(commentPar);
+      const numLikesPlusOne = Number(likeIcon.textContent.trim()) + 1;
+      likeIcon.innerHTML = likeTemplate(numLikesPlusOne);
 
     } catch (e) {
       console.error(e);

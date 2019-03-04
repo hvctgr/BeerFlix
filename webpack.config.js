@@ -1,5 +1,4 @@
 
-
 const path = require('path');
 const webpack = require('webpack');
 const htmlPlugin = require('html-webpack-plugin');

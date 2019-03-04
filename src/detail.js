@@ -39,7 +39,7 @@ const renderDetail = async () => {
 
         const beerHTML = detailTemplate(beerObj.beer);
         document.getElementById('detail').innerHTML = beerHTML;
-        likePlus(id)
+        likePlus(id);
 
         if (beerObj.beer.comment) {
             const commentHTML = beerObj.beer.comment.map( (comment) => commentTemplate(comment) ).join('');

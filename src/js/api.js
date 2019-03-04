@@ -3,13 +3,13 @@ const API_KEY = '15PKA5T-XCV4K6J-GQ4ZAG0-Q4WX0MX';
 
 const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh/api/v1/') => {
     const SEARCH_API_URL = `${API_URL}beers?search=`;
-    const BEERS_URL = `${API_URL}beers`
+    const BEERS_URL = `${API_URL}beers`;
+    const LIMIT_FILTER = `&limit=`
     return {
-        getBeers: async (query) => {
-            console.log('entro');
+        getBeers: async (query, limit) => {
             try {                
                 const requestURL = query ? 
-                `${SEARCH_API_URL}${query}` : 
+                `${SEARCH_API_URL}${query}${LIMIT_FILTER}${limit}` : 
                 BEERS_URL;
                 const response = await fetch(requestURL, {
                     headers: {
@@ -17,7 +17,6 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
                         'X-API-KEY': API_KEY,
                     },
                 });
-                console.log(response);
                 const datos = await response.json();
                 return datos;
             } catch (e) {
@@ -72,12 +71,10 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
                         'X-API-KEY': API_KEY,
                     },
                 });
-                console.log(response);
                 if(!response.ok) {
                     throw 'Error';
                 }
                 const like = await response.json();
-                console.log("retorno like: ", like);
                 return like;
             } catch (e) {
                 console.error(e);

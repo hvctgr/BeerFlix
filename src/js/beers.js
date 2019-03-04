@@ -5,6 +5,8 @@ import api from './api';
 
 const { getBeers } = api();
 
+const LIMIT_BEERS = 10;
+
 
 const templateBeer = ({ beerId, name, image, description, principal, likes }) => `
     <div id="${beerId}" class="card ${principal ? 'principal' : 'secondary close'}">
@@ -37,7 +39,7 @@ const templateBeer = ({ beerId, name, image, description, principal, likes }) =>
 `;
 
 const renderBeers = (element, beersToShow) => {
-  const htmlBeers = beersToShow.slice(0, 10).map((beer, index) => {
+  const htmlBeers = beersToShow.map((beer, index) => {
     if (index < 1) {
       return templateBeer({
         ...beer,
@@ -57,8 +59,9 @@ const renderBeers = (element, beersToShow) => {
 
 const renderDOMBeers = async (query) => {
   try {
-    const objectBeers = await getBeers(query); //poner limite
-console.log(objectBeers)
+    const objectBeers = await getBeers(query, LIMIT_BEERS); 
+
+    console.log(objectBeers)
 
     const [dateFilterYear, dateFilterMonth] = document.getElementById('dateInput').value.split('-');
     const beersFiltered = objectBeers.beers.filter(beer => {
