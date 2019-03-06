@@ -51,7 +51,6 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
                         'X-API-KEY': API_KEY,
                     },
                 });
-                console.log(response);
                 if(!response.ok) {
                     throw 'Error';
                 }

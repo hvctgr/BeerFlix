@@ -45,7 +45,9 @@ module.exports = {
                 use: [
                     {
                         loader: 'file-loader',
-                        options: {},
+                        options: {
+                            name: '[name].[ext]',
+                        },
                     }
                 ],
             },

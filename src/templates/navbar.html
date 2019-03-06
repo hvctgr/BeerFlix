@@ -1,22 +1,35 @@
 <navbar id="navbar" class="app-navbar no-search">
-    <div class="navbar-logo">
-      <a href="/">BeerFlix</a>
-    </div>
-    <div class="filter-container">
-      <form id="search-form" class="filter-input">
-        <input placeholder="search your beer" class="
-        input search" type="text">
-        <button type="submit" class="button search">
-          Search
-        </button>
-      </form>
-      <div class="date-input">
-        From: <input type="month" id="dateInput" value="2000-01">
-      </div>
-    </div>
+
+
+    <picture>
+        <source srcset="
+          ../images/beers-desktop.jpg 1280w,
+          ../images/beers-bg.jpg 800w,
+          ../images/beers-bg-lg2.jpg 320w,
+          " media="(min-width: 768px)">
+        <source srcset="../images/beers-md.jpg" media="(min-width: 320px)">
     
-    <div class="navbar-icon">
-        <i id="navbar-search" class="fas fa-search"></i>
-        <i id="navbar-close"class="fas fa-times"></i>
+        <img src="../images/beers-bg3.jpg" alt="cerveza">
+    </picture>
+  <div class="navbar-logo">
+
+    <a href="/">BeerFlix</a>
+  </div>
+  <div class="filter-container">
+    <form id="search-form" class="filter-input">
+      <input placeholder="search your beer" class="
+        input search" type="text">
+      <button type="submit" class="button search">
+        Search
+      </button>
+    </form>
+    <div class="date-input">
+      From: <input type="month" id="dateInput" value="2000-01">
     </div>
-  </navbar>
+  </div>
+
+  <div class="navbar-icon">
+    <i id="navbar-search" class="fas fa-search"></i>
+    <i id="navbar-close" class="fas fa-times"></i>
+  </div>
+</navbar>
