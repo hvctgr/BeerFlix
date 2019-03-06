@@ -10,9 +10,3 @@
         @content;
     }
 }
-
-@mixin largeDesktop {
-    @media (min-width: #{$large-desktop-width}) {
-        @content;
-    }
-}

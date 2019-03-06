@@ -8,7 +8,7 @@ const { getBeers } = api();
 const LIMIT_BEERS = 10;
 
 
-const templateBeer = ({ beerId, name, image, description, principal, likes }) => `
+const templateBeer = ({ beerId, name, image, description, principal, likes, price, firstBrewed }) => `
     <div id="${beerId}" class="card ${principal ? 'principal' : 'secondary close'}">
         <header class="card-header">
           <h2>${name}</h2>
@@ -21,17 +21,9 @@ const templateBeer = ({ beerId, name, image, description, principal, likes }) =>
             <p>${striptags(description)}</p>
             <div class="rating-container">
               <button class="icon">
-                <i class="fas fa-star"></i>
-              </button>
-              <button class="icon">
-                <i class="far fa-star"></i>
-              </button>
-              <button class="icon">
-                <i class="far fa-star"></i>
-              </button>
-              <button class="icon">
                 <i class="fas fa-thumbs-up"> ${likes}</i>
               </button>
+              <span class="sinceBrew">${firstBrewed}</span>
             </div>
           </div>
         </div>
