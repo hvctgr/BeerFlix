@@ -5,7 +5,7 @@ import { likePlus } from './js/likesPlus';
 
 const { getBeersDetail } = api();
 
-const detailTemplate = ({ beerId, name, description, image, likes }) => `
+const detailTemplate = ({ beerId, name, description, image, likes, price, brewersTips, firstBrewed}) => `
 <header id="${beerId}">
     <div class="title-section">
         <h1>${name}</h1>
@@ -14,13 +14,25 @@ const detailTemplate = ({ beerId, name, description, image, likes }) => `
         <img src="${ image}"
     </div>
     <div class="content">
-        ${description}
+        <span class="description">
+            <p>${description}</p>
+        </span>
+        <span class="brewersTips">
+            <p><span class="label">Brewer Tips</span>: ${brewersTips}</p>
+        </span>
+        <span class="price">
+            <p><span class="label">Price</span>: ${price} $</p>
+        </span>
+        <span class="firstBrewed">
+            <p><span class="label">First Brewed</span>: ${firstBrewed}</p>
+        </span>
+        <div class="likes">
+            <button class="icon">
+                <i class="fas fa-thumbs-up"> ${likes}</i>
+            </button>
+        </div>
     </div>
-    <div class="likes">
-        <button class="icon">
-            <i class="fas fa-thumbs-up"> ${likes}</i>
-        </button>
-    </div>
+    
 </div>
 
 </header>
