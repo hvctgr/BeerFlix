@@ -11,7 +11,9 @@ const LIMIT_BEERS = 10;
 const templateBeer = ({ beerId, name, image, description, principal, likes, price, firstBrewed }) => `
     <div id="${beerId}" class="card ${principal ? 'principal' : 'secondary close'}">
         <header class="card-header">
-          <h2>${name}</h2>
+        <a href="/detail.html?id=${beerId}">
+          <h2 class="font-effect-crackle">${name}</h2>
+        </a>
         </header>
         <div class="card-content">
           <div class="card-content-image">
