@@ -7,7 +7,11 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
     const LIMIT_FILTER = `&limit=`
     return {
         getBeers: async (query, limit) => {
-            try {                
+            try {   
+                console.log("query")
+                console.log(query)             
+                console.log("limit")
+                console.log(limit)
                 const requestURL = query ? 
                 `${SEARCH_API_URL}${query}${LIMIT_FILTER}${limit}` : 
                 BEERS_URL;
@@ -17,7 +21,11 @@ const api = (API_URL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh
                         'X-API-KEY': API_KEY,
                     },
                 });
+                console.log("url")
+                console.log(requestURL)
                 const datos = await response.json();
+                console.log("DATOS")
+                console.log(datos)
                 return datos;
             } catch (e) {
                 console.error(e);

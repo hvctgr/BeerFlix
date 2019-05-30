@@ -52,6 +52,7 @@ const renderBeers = (element, beersToShow) => {
 };
 
 const renderDOMBeers = async (query) => {
+  console.log(query)
   try {
     const objectBeers = await getBeers(query, LIMIT_BEERS); 
 
@@ -76,3 +77,5 @@ const renderDOMBeers = async (query) => {
 export {
   renderDOMBeers,
 };
+
+renderDOMBeers(' ');
