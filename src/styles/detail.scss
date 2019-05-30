@@ -68,19 +68,21 @@ main {
   }
   .title-section {
     color: $primary-text-color;
-    font-size: $icons + 2rem;
+    font-family: 'Black Ops One';
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: $icons + 1.5rem;
     text-align: center;
     margin: auto;
-    width: 50%;
-    padding: 1rem 0;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
   .image-container {
     padding-top: 1rem;
+    padding-bottom: 1rem;
     width: 100%;
-    margin: 0 auto;
-    @include desktop {
-      width: 50%;
-    }
+    margin: 0 auto; 
     img {
       width: 20%;
       height: 20%;
@@ -89,18 +91,20 @@ main {
       @include desktop {
         border-radius: 25px;
       }
-    }
-    
+    }  
   }
   .title-section,
-    .image-container {
+  .image-container {
       background-color: $primary-color-light;
       border-radius: 25px;
+      @include desktop {
+        width: 50%;
+      }
     }
   .content {
-    
     .label {
-
+      font-style: oblique;
+      font-weight: bold;
     }
     .likes {
       float: right;

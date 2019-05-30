@@ -8,7 +8,7 @@ const { getBeersDetail } = api();
 const detailTemplate = ({ beerId, name, description, image, likes, price, brewersTips, firstBrewed}) => `
 <header id="${beerId}">
     <div class="title-section">
-        <h1>${name}</h1>
+        <h1 class="font-effect-crackle">${name}</h1>
     </div>
     <div class="image-container">
         <img src="${ image}"
@@ -18,13 +18,13 @@ const detailTemplate = ({ beerId, name, description, image, likes, price, brewer
             <p>${description}</p>
         </span>
         <span class="brewersTips">
-            <p><span class="label">Brewer Tips</span>: ${brewersTips}</p>
-        </span>
-        <span class="price">
-            <p><span class="label">Price</span>: ${price} $</p>
+            <p><span class="label">Brewer Tips:</span> ${brewersTips}</p>
         </span>
         <span class="firstBrewed">
-            <p><span class="label">First Brewed</span>: ${firstBrewed}</p>
+            <p><span class="label">First Brewed:</span> ${firstBrewed}</p>
+        </span>
+        <span class="price">
+            <p><span class="label">Price:</span> ${price} $</p>
         </span>
         <div class="likes">
             <button class="icon">
