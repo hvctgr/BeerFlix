@@ -52,11 +52,8 @@ const renderBeers = (element, beersToShow) => {
 };
 
 const renderDOMBeers = async (query) => {
-  console.log(query)
   try {
     const objectBeers = await getBeers(query, LIMIT_BEERS); 
-
-    console.log(objectBeers)
 
     const [dateFilterYear, dateFilterMonth] = document.getElementById('dateInput').value.split('-');
     const beersFiltered = objectBeers.beers.filter(beer => {
